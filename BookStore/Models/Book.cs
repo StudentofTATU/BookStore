@@ -13,7 +13,7 @@ namespace BookStore.Models
         public decimal Cost { get; set; }
 
         [ForeignKey("Category")]
-        public Category CategoryId { get; set; }
+        public int CategoryId { get; set; }
 
         public ICollection<KeyWord> Keywords { get; set; }
         public ICollection<Book> SimilarBooks { get; set; }
