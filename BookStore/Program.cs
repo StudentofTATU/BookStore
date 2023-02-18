@@ -1,4 +1,6 @@
 using BookStore.Data;
+using BookStore.Interfaces;
+using BookStore.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookStore
@@ -11,6 +13,7 @@ namespace BookStore
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
             {
