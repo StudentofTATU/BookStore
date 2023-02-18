@@ -4,7 +4,7 @@ namespace BookStore.Interfaces
 {
     public interface IUserRepository
     {
-        Task<IEnumerable<User>> GetAllUsers();
+        Task<IEnumerable<User>> GetAllUsersAsync();
         Task<User> GetUserByIdAsync(int userId);
 
         bool Add(User user);
