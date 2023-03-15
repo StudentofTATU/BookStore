@@ -1,0 +1,38 @@
+﻿@model IEnumerable<User>
+
+@{
+    ViewData["Title"] = "User Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">User world</h1>
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(User user in Model){
+                <tr>
+                    <th>@user.Name</th>
+                    <th>@user.UserStatus</th>
+                    <th>
+                        <a type="button" class="btn btn-sm btn-outline-info" asp-controller="User" asp-action="Edit" asp-route-id="@user.Id">
+                            Edit
+                        </a>
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+    <a type="button" class="btn btn-sm btn-outline-info" asp-controller="User" asp-action="Create">
+        Create New User
+    </a>
+</div>

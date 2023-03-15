@@ -31,15 +31,20 @@ namespace BookStore.Repository
 
         public bool Update(User user)
         {
-            _context.Update(user);
+            User updateUser = _context.Users.Find(user.Id);
+
+            updateUser.Name = user.Name;
+            updateUser.Password = user.Password;
+            updateUser.UserStatus = user.UserStatus;
 
             return Save();
         }
 
-        public bool Delete(User user)
+        public bool Delete(int userId)
         {
-            _context.Remove(user);
+            User deleteUser = _context.Users.Find(userId);
 
+            _context.Users.Remove(deleteUser);
             return Save();
         }
 
